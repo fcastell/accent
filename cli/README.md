@@ -20,7 +20,7 @@ $ npm install -g accent-cli
 $ accent COMMAND
 running command...
 $ accent (-v|--version|version)
-accent-cli/0.16.3 darwin-x64 node-v22.1.0
+accent-cli/0.16.3 darwin-x64 node-v22.13.1
 $ accent --help [COMMAND]
 USAGE
   $ accent COMMAND
@@ -188,6 +188,7 @@ Naming a branch `release/v1.0.0` will cause the `sync` and `stats` CLI commands 
 * [`accent lint`](#accent-lint)
 * [`accent stats`](#accent-stats)
 * [`accent sync`](#accent-sync)
+* [`accent translations`](#accent-translations)
 
 ## `accent export`
 
@@ -207,7 +208,7 @@ EXAMPLES
   $ accent export --order-by=key --version=build.myapp.com:0.12.345
 ```
 
-_See code: [src/commands/export.ts](https://github.com/mirego/accent/blob/v0.16.3/src/commands/export.ts)_
+_See code: [src/commands/export.ts](https://github.com/fcastell/accent/blob/v0.16.3/src/commands/export.ts)_
 
 ## `accent format`
 
@@ -225,7 +226,7 @@ EXAMPLE
   $ accent format
 ```
 
-_See code: [src/commands/format.ts](https://github.com/mirego/accent/blob/v0.16.3/src/commands/format.ts)_
+_See code: [src/commands/format.ts](https://github.com/fcastell/accent/blob/v0.16.3/src/commands/format.ts)_
 
 ## `accent help [COMMAND]`
 
@@ -262,7 +263,7 @@ EXAMPLE
   $ accent jipt
 ```
 
-_See code: [src/commands/jipt.ts](https://github.com/mirego/accent/blob/v0.16.3/src/commands/jipt.ts)_
+_See code: [src/commands/jipt.ts](https://github.com/fcastell/accent/blob/v0.16.3/src/commands/jipt.ts)_
 
 ## `accent lint`
 
@@ -279,7 +280,7 @@ EXAMPLE
   $ accent lint
 ```
 
-_See code: [src/commands/lint.ts](https://github.com/mirego/accent/blob/v0.16.3/src/commands/lint.ts)_
+_See code: [src/commands/lint.ts](https://github.com/fcastell/accent/blob/v0.16.3/src/commands/lint.ts)_
 
 ## `accent stats`
 
@@ -299,7 +300,7 @@ EXAMPLE
   $ accent stats
 ```
 
-_See code: [src/commands/stats.ts](https://github.com/mirego/accent/blob/v0.16.3/src/commands/stats.ts)_
+_See code: [src/commands/stats.ts](https://github.com/fcastell/accent/blob/v0.16.3/src/commands/stats.ts)_
 
 ## `accent sync`
 
@@ -334,7 +335,41 @@ EXAMPLES
   $ accent sync --add-translations --merge-type=smart --order-key=key --version=v0.23
 ```
 
-_See code: [src/commands/sync.ts](https://github.com/mirego/accent/blob/v0.16.3/src/commands/sync.ts)_
+_See code: [src/commands/sync.ts](https://github.com/fcastell/accent/blob/v0.16.3/src/commands/sync.ts)_
+
+## `accent translations`
+
+Add translation file in Accent
+
+```
+USAGE
+  $ accent translations
+
+OPTIONS
+  --add                             Add a translation in Accent to help translators if you already have translated
+                                    strings locally
+
+  --config=config                   [default: accent.json] Path to the config file
+
+  --document-path=document-path     Document path
+
+  --dry-run                         Do not commit the changes in Accent
+
+  --file=file                       File to add
+
+  --merge-type=smart|passive|force  [default: passive] Algorithm to use on existing strings when adding translation
+
+  --slug=slug                       Add a translation to a specific slug
+
+  --sync-type=smart|passive         [default: smart] Algorithm to use on existing strings when syncing the main language
+
+  --version=version                 Sync a specific version, the tag needs to exists in Accent first
+
+EXAMPLE
+  $ accent translations --file=fr.json --slug=fr --merge-type=smart --version=v0.23
+```
+
+_See code: [src/commands/translations.ts](https://github.com/fcastell/accent/blob/v0.16.3/src/commands/translations.ts)_
 <!-- commandsstop -->
 
 # GitHub Actions
