@@ -142,7 +142,7 @@ export default class Document {
     if (options['dry-run']) url = `${url}/peek`;
     if (options.version) formData.append('version', options.version);
     if (options['merge-type']) {
-      formData.append('merge_type', options['merge-type']);
+      formData.append('merge-type', options['merge-type']);
     }
 
     const response = await fetch(url, {
